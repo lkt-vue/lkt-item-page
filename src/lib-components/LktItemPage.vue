@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // Emits
-import {computed, nextTick, PropType, ref, useSlots} from "vue";
+import {nextTick, PropType, ref, useSlots} from "vue";
 import {LktObject} from "lkt-ts-interfaces";
 
 // Slots
@@ -18,7 +18,8 @@ const props = defineProps({
 const Page = ref(props.page),
     items = ref([]),
     loading = ref(true),
-    firstLoadReady = ref(false);
+    firstLoadReady = ref(false),
+    paginator = ref(null);
 
 
 const onResults = (r: any) => {
@@ -27,7 +28,15 @@ const onResults = (r: any) => {
         loading.value = false;
         firstLoadReady.value = true;
     },
-    onLoading = () => nextTick(() => loading.value = true);
+    onLoading = () => nextTick(() => loading.value = true),
+    doRefresh = () => {
+        //@ts-ignore
+        paginator.value.doRefresh();
+    };
+
+defineExpose({
+    doRefresh
+})
 </script>
 
 
@@ -63,6 +72,7 @@ const onResults = (r: any) => {
         </div>
 
         <lkt-paginator
+            ref="paginator"
             v-model="Page"
             v-bind:resource="resource"
             v-bind:filters="filters"

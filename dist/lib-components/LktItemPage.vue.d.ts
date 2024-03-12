@@ -21,7 +21,9 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<{
         type: PropType<LktObject>;
         default: () => {};
     };
-}, {}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
+}, {
+    doRefresh: () => void;
+}, unknown, {}, {}, import("vue").ComponentOptionsMixin, import("vue").ComponentOptionsMixin, {}, string, import("vue").PublicProps, Readonly<import("vue").ExtractPropTypes<{
     page: {
         type: NumberConstructor;
         default: number;

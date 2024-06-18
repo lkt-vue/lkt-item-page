@@ -1,4 +1,4 @@
-import { defineComponent as z, useSlots as F, ref as s, computed as d, resolveComponent as f, openBlock as t, createElementBlock as a, unref as c, toDisplayString as k, createCommentVNode as l, renderSlot as m, createBlock as C, normalizeClass as j, Fragment as q, renderList as G, createElementVNode as H, withCtx as J, createTextVNode as K, createVNode as M, nextTick as O } from "vue";
+import { defineComponent as z, useSlots as F, ref as o, computed as m, resolveComponent as k, openBlock as t, createElementBlock as s, unref as i, toDisplayString as f, createCommentVNode as a, renderSlot as d, createBlock as L, normalizeClass as j, Fragment as q, renderList as G, createElementVNode as H, withCtx as J, createTextVNode as K, createVNode as M, nextTick as O } from "vue";
 const Q = { class: "lkt-item-page" }, W = { key: 0 }, X = { key: 0 }, Y = {
   key: 1,
   class: "lkt-item-page-buttons"
@@ -20,78 +20,90 @@ const Q = { class: "lkt-item-page" }, W = { key: 0 }, X = { key: 0 }, Y = {
     filters: { default: () => ({}) }
   },
   emits: ["create"],
-  setup(r, { expose: b, emit: R }) {
-    const V = R, u = F(), T = r;
-    let L = [];
-    const v = s(T.page), i = s([]), o = s(L);
-    s(!1);
-    const n = s(!0), g = s(!1), _ = s(null), N = (e) => {
-      Array.isArray(e) && (i.value = e), n.value = !1, g.value = !0;
-    }, P = (e) => {
-      o.value = e;
-    }, $ = () => O(() => n.value = !0), B = () => V("create"), D = () => {
+  setup(c, { expose: V, emit: T }) {
+    const N = T, n = F(), P = c;
+    let $ = [];
+    const g = o(P.page), r = o([]), u = o($);
+    o(!1);
+    const l = o(!0), y = o(!1), _ = o(null), D = (e) => {
+      Array.isArray(e) && (r.value = e), l.value = !1, y.value = !0;
+    }, U = (e) => {
+      u.value = e;
+    }, B = () => O(() => l.value = !0), S = () => N("create"), A = () => {
       _.value.doRefresh();
-    }, y = d(() => o.value.includes("create")), S = d(() => o.value.includes("read")), U = d(() => o.value.includes("update")), A = d(() => o.value.includes("drop"));
-    return b({
-      doRefresh: D
-    }), (e, h) => {
-      const E = f("lkt-loader"), I = f("lkt-button"), w = f("lkt-paginator");
-      return t(), a("section", Q, [
-        e.title || c(u).title ? (t(), a("header", W, [
-          e.title ? (t(), a("h2", X, k(e.title), 1)) : l("", !0),
-          c(u).title ? m(e.$slots, "title", { key: 1 }) : l("", !0)
-        ])) : l("", !0),
-        c(u).buttons ? (t(), a("div", Y, [
-          m(e.$slots, "buttons")
-        ])) : l("", !0),
-        g.value && c(u).filters ? (t(), a("div", Z, [
-          m(e.$slots, "filters")
-        ])) : l("", !0),
-        n.value ? (t(), C(E, { key: 3 })) : l("", !0),
-        !n.value && i.value.length > 0 ? (t(), a("div", {
+    }, p = m(() => u.value.includes("create")), h = m(() => u.value.includes("read")), C = m(() => u.value.includes("update")), R = m(() => u.value.includes("drop"));
+    return V({
+      doRefresh: A
+    }), (e, b) => {
+      const E = k("lkt-loader"), I = k("lkt-button"), w = k("lkt-paginator");
+      return t(), s("section", Q, [
+        e.title || i(n).title ? (t(), s("header", W, [
+          e.title ? (t(), s("h2", X, f(e.title), 1)) : a("", !0),
+          i(n).title ? d(e.$slots, "title", { key: 1 }) : a("", !0)
+        ])) : a("", !0),
+        i(n).buttons ? (t(), s("div", Y, [
+          d(e.$slots, "buttons")
+        ])) : a("", !0),
+        y.value && i(n).filters ? (t(), s("div", Z, [
+          d(e.$slots, "filters", {
+            items: r.value,
+            isLoading: l.value
+          })
+        ])) : a("", !0),
+        l.value ? (t(), L(E, { key: 3 })) : a("", !0),
+        !l.value && r.value.length > 0 ? (t(), s("div", {
           key: 4,
           class: j(["lkt-item-page-items", e.itemsClass])
         }, [
-          (t(!0), a(q, null, G(i.value, (p) => m(e.$slots, "item", {
-            item: p,
-            canCreate: y.value,
-            canRead: S.value,
-            canUpdate: U.value,
-            canDrop: A.value
-          })), 256))
-        ], 2)) : l("", !0),
-        !n.value && i.value.length === 0 ? (t(), a("div", x, k(e.noResultsText), 1)) : l("", !0),
-        H("div", ee, [
-          y.value ? (t(), C(I, {
+          (t(!0), s(q, null, G(r.value, (v) => d(e.$slots, "item", {
+            item: v,
+            canCreate: p.value,
+            canRead: h.value,
+            canUpdate: C.value,
+            canDrop: R.value,
+            isLoading: l.value
+          })), 256)),
+          i(n)["extra-item"] ? d(e.$slots, "extra-item", {
             key: 0,
-            onClick: B,
+            canCreate: p.value,
+            canRead: h.value,
+            canUpdate: C.value,
+            canDrop: R.value,
+            isLoading: l.value
+          }) : a("", !0)
+        ], 2)) : a("", !0),
+        !l.value && r.value.length === 0 ? (t(), s("div", x, f(e.noResultsText), 1)) : a("", !0),
+        H("div", ee, [
+          p.value ? (t(), L(I, {
+            key: 0,
+            onClick: S,
             palette: "success"
           }, {
             default: J(() => [
-              K(k(e.createText), 1)
+              K(f(e.createText), 1)
             ]),
             _: 1
-          })) : l("", !0)
+          })) : a("", !0)
         ]),
         M(w, {
           ref_key: "paginator",
           ref: _,
-          modelValue: v.value,
-          "onUpdate:modelValue": h[0] || (h[0] = (p) => v.value = p),
+          modelValue: g.value,
+          "onUpdate:modelValue": b[0] || (b[0] = (v) => g.value = v),
           resource: e.resource,
           filters: e.filters,
-          onResults: N,
-          onPerms: P,
-          onLoading: $
+          onResults: D,
+          onPerms: U,
+          onLoading: B
         }, null, 8, ["modelValue", "resource", "filters"])
       ]);
     };
   }
-}), ae = {
-  install: (r) => {
-    r.component("lkt-item-page") === void 0 && r.component("lkt-item-page", te);
+}), le = {
+  install: (c) => {
+    c.component("lkt-item-page") === void 0 && c.component("lkt-item-page", te);
   }
 };
 export {
-  ae as default
+  le as default
 };

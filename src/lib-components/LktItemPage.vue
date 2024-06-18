@@ -79,7 +79,7 @@ defineExpose({
         </div>
 
         <div class="lkt-item-page-filters" v-if="firstLoadReady && slots.filters">
-            <slot name="filters"></slot>
+            <slot name="filters" :items="items" :is-loading="loading"></slot>
         </div>
 
         <lkt-loader v-if="loading"></lkt-loader>
@@ -92,6 +92,17 @@ defineExpose({
                       v-bind:can-read="canRead"
                       v-bind:can-update="canUpdate"
                       v-bind:can-drop="canDrop"
+                      v-bind:is-loading="loading"
+                />
+            </template>
+
+            <template v-if="slots['extra-item']">
+                <slot name="extra-item"
+                      v-bind:can-create="canCreate"
+                      v-bind:can-read="canRead"
+                      v-bind:can-update="canUpdate"
+                      v-bind:can-drop="canDrop"
+                      v-bind:is-loading="loading"
                 />
             </template>
         </div>

@@ -48,13 +48,24 @@ declare const _default: __VLS_WithTemplateSlots<import("vue").DefineComponent<__
 }, {}>, {
     title?(_: {}): any;
     buttons?(_: {}): any;
-    filters?(_: {}): any;
+    filters?(_: {
+        items: never[];
+        isLoading: boolean;
+    }): any;
     item?(_: {
         item: never;
         canCreate: boolean;
         canRead: boolean;
         canUpdate: boolean;
         canDrop: boolean;
+        isLoading: false;
+    }): any;
+    "extra-item"?(_: {
+        canCreate: boolean;
+        canRead: boolean;
+        canUpdate: boolean;
+        canDrop: boolean;
+        isLoading: false;
     }): any;
 }>;
 export default _default;

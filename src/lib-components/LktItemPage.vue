@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 // Emits
-import {computed, nextTick, PropType, ref, useSlots} from "vue";
+import {computed, nextTick, ref, useSlots} from "vue";
 import {LktObject} from "lkt-ts-interfaces";
 
 // Emits
